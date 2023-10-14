@@ -1,14 +1,11 @@
+
 function isPalindrome(word) {
-  // Write your algorithm here
+  // Remove spaces and convert to lowercase to make it case-insensitive
+  word = word.replace(/\s/g, '').toLowerCase();
+
+  // Compare the original string with its reverse
+  return word === word.split('').reverse().join('');
 }
-
-/* 
-  Add your pseudocode here
-*/
-
-/*
-  Add written explanation of your solution here
-*/
 
 // You can run `node index.js` to view these console logs
 if (require.main === module) {
@@ -20,6 +17,21 @@ if (require.main === module) {
 
   console.log("Expecting: false");
   console.log("=>", isPalindrome("robot"));
+
+  console.log("");
+
+  console.log("Expecting: true");
+  console.log("=>", isPalindrome("a"));
+
+  console.log("");
+
+  console.log("Expecting: true");
+  console.log("=>", isPalindrome("abba"));
+
+  console.log("");
+
+  console.log("Expecting: false");
+  console.log("=>", isPalindrome("ab"));
 }
 
 module.exports = isPalindrome;
